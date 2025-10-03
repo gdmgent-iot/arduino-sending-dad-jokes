@@ -1,6 +1,11 @@
-# Connect to WiFi en Verstuur Dad Jokes met Arduino (WiFiNINA)
+# HTTP Calls en client-server communicatie met Arduino
 
 Deze repository bevat voorbeeldcode om een Arduino (met WiFiNINA-compatibele module) te verbinden met een WiFi-netwerk, een dad joke op te halen via een API en deze via het netwerk te versturen naar een andere Arduino.
+
+Elke Arduino fungeert zowel als client (om de grap op te halen) als server (om de grap te ontvangen).
+ - De client maakt verbinding met een WiFi-netwerk en haalt elke 10 seconden een random dad joke op via de [Official Joke API](https://official-joke-api.appspot.com/jokes/random).
+ - De server draait een TCP-server op poort 5000 en luistert naar inkomende verbindingen, waarbij ontvangen grappen in de seriële monitor worden weergegeven, afkomstig van andere Arduino's.
+
 
 ## Benodigdheden
 
