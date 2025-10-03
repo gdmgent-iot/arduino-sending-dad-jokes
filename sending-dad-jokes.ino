@@ -44,6 +44,14 @@ void connectToWiFi() {
   }
 }
 
+// ---------------------- CONTROLEER OF WIFI VERBINDING NOG STEEDS BESTAAT ----------------------
+void checkWiFiConnection() {
+  if (WiFi.status() != WL_CONNECTED) {
+    Serial.println("WiFi verloren, opnieuw verbinden...");
+    connectToWiFi();
+  }
+}
+
 // ---------------------- SERVER STARTEN ----------------------
 void connectToServer() {
   if (WiFi.status() == WL_CONNECTED) {
@@ -64,6 +72,7 @@ void setup() {
 
 // ---------------------- LOOP ----------------------
 void loop() {
+  checkWiFiConnection();    // controleer of WiFi verbinding nog steeds bestaat
   listenToCatFact();         // regelmatig een grap ophalen van API
   listenToClientMessages();  // inkomende berichten van andere Arduino’s
 }
